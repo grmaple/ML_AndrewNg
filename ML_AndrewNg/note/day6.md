@@ -97,3 +97,47 @@ h(x)与 cost(h(x),y)之间的关系如下图所示：
 <img src="C:\Users\xuyingfeng\AppData\Roaming\Typora\typora-user-images\image-20200429215229539.png" alt="image-20200429215229539" style="zoom:150%;" />
 
 另外，在运行梯度下降算法之前，进行特征缩放依旧是非常必要的。
+
+### 6.6 高级优化
+
+在上一个视频中，我们讨论了用梯度下降的方法最小化逻辑回归中代价函数J(θ)。在本次视频中，我会教你们一些高级优化算法和一些高级的优化概念，利用这些方法，我们就能够使通过梯度下降，进行逻辑回归的速度大大提高，而这也将使算法更加适合解决大型的机器学习问题。
+
+另一种考虑梯度下降的思路是：我们需要写出代码来计算J(θ)和这些偏导数，然后把这些插入到梯度下降中，然后它就可以为我们最小化这个函数。 
+
+如果我们能用这些方法来计算代价函数J(θ)和
+
+偏导数项![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps2.jpg)两个项的话，那么这些算法就是为我们优化代价函数的不同方法，**共轭梯度法 BFGS(变尺度法)** 和**L-BFGS(限制变尺度法)** 就是其中一些更高级的优化算法。
+
+它们可以自动尝试不同的学习速率α，并自动选择一个好的学习速率α，因此它甚至可以为每次迭代选择不同的学习速率，那么你就不需要自己选择。
+
+我希望你们从这个幻灯片中学到的主要内容是：写一个函数，它能返回代价函数值、梯度值，因此要把这个应用到逻辑回归，或者甚至线性回归中，你也可以把这些优化算法用于线性回归，你需要做的就是输入合适的代码来计算这里的这些东西。
+
+### 6.7 多类别分类：一对多
+
+在本节视频中，我们将谈到如何使用逻辑回归 (**logistic regression**)来解决多类别分类问题，具体来说，我想通过一个叫做"一对多" (**one-vs-all**) 的分类算法。
+
+对于一个多类分类问题，我们的数据集或许看起来像这样：
+
+![image-20200508160047011](C:\Users\xuyingfeng\AppData\Roaming\Typora\typora-user-images\image-20200508160047011.png)
+
+我们现在已经知道如何进行二元分类，可以使用逻辑回归，对于直线或许你也知道，可以将数据集一分为二为正类和负类。用一对多的分类思想，我们可以将其用在多类分类问题上。
+
+下面将介绍如何进行一对多的分类工作，有时这个方法也被称为"一对余"方法。
+
+![image-20200508160502426](C:\Users\xuyingfeng\AppData\Roaming\Typora\typora-user-images\image-20200508160502426.png)
+
+现在我们有一个训练集，好比上图表示的有3个类别，我们用三角形表示 ![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps3.jpg)，方框表示![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps4.jpg)，叉叉表示 ![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps5.jpg)。我们下面要做的就是使用一个训练集，将其分成3个二元分类问题。
+
+我们先从用三角形代表的类别1开始，实际上我们可以创建一个，新的"伪"训练集，类型2和类型3定为负类，类型1设定为正类，我们创建一个新的训练集，如下图所示的那样，我们要拟合出一个合适的分类器。
+
+![image-20200508160529963](C:\Users\xuyingfeng\AppData\Roaming\Typora\typora-user-images\image-20200508160529963.png)
+
+最后我们得到一系列的模型简记为： ![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps6.jpg)其中：![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps7.jpg) 
+
+最后，在我们需要做预测时，我们将所有的分类机都运行一遍，然后对每一个输入变量，都选择最高可能性的输出变量。
+
+我们要做的就是在我们三个分类器里面输入x，
+
+然后我们选择一个让h^(i)(x)最大的i，即
+
+![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps8.jpg)。
