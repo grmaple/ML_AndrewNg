@@ -18,9 +18,11 @@
 
 在这段视频中，我要给你展示假设函数的表达式，也就是说，在分类问题中，要用什么样的函数来表示我们的假设。此前我们说过，希望我们的分类器的输出值在0和1之间，因此，我们希望想出一个满足某个性质的假设函数，这个性质是它的预测值要在0和1之间。
 
-逻辑回归模型的假设是： ![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml3016\wps2.jpg)
+逻辑回归模型的假设是：
 
-其中：X代表特征向量，g代表**逻辑函数**是一个常用的逻辑函数为S形函数，公式为： ![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml3016\wps3.jpg)
+ ![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps24.jpg)
+
+其中：X代表特征向量，g代表**逻辑函数**是一个常用的逻辑函数为S形函数，公式为：  ![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps23.jpg)
 
 该函数的图像为：
 
@@ -28,11 +30,11 @@
 
 合起来，我们得到逻辑回归模型的假设：
 
-对模型的理解： ![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml3016\wps4.jpg)。
+对模型的理解：![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps25.jpg)。
 
 h(x)的作用是，对于给定的输入变量，根据选择的参数计算输出变量=1的可能性，
 
-即![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml3016\wps5.jpg) 
+即![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps26.jpg) 
 
 ### 6.3 判定边界
 
@@ -52,7 +54,7 @@ h(x)的作用是，对于给定的输入变量，根据选择的参数计算输�
 
 因为需要用曲线才能分隔y=0的区域和y=1的区域，我们需要二次方特征：
 
-![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml3016\wps6.jpg)θ是[-1 0 0 1 1]，则我们得到的判定边界恰好是圆点在原点且半径为1的圆形。
+![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps27.jpg),θ是[-1 0 0 1 1]，则我们得到的判定边界恰好是圆点在原点且半径为1的圆形。
 
 ### 6.4 代价函数
 
@@ -62,15 +64,15 @@ h(x)的作用是，对于给定的输入变量，根据选择的参数计算输�
 
 我们重新定义逻辑回归的代价函数为：
 
-![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml3016\wps7.jpg)
+![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps28.jpg)
 
 ，其中
 
-![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml3016\wps8.jpg) 
+![image-20200508173623581](C:\Users\xuyingfeng\AppData\Roaming\Typora\typora-user-images\image-20200508173623581.png)
 
 h(x)与 cost(h(x),y)之间的关系如下图所示：
 
-![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml3016\wps11.png) 
+![image-20200508173634714](C:\Users\xuyingfeng\AppData\Roaming\Typora\typora-user-images\image-20200508173634714.png)
 
 ### 6.5 简化的成本函数和梯度下降
 
@@ -78,11 +80,11 @@ h(x)与 cost(h(x),y)之间的关系如下图所示：
 
 这个式子可以合并成：
 
-![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml3016\wps12.jpg) 
+![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps29.jpg) 
 
 即，逻辑回归的代价函数：
 
-![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml3016\wps17.jpg) 
+![image-20200508173742123](C:\Users\xuyingfeng\AppData\Roaming\Typora\typora-user-images\image-20200508173742123.png)
 
 最小化代价函数的方法，是使用**梯度下降法**
 
