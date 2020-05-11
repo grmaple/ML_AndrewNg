@@ -93,3 +93,6 @@
 ![image-20200508173231131](C:\Users\xuyingfeng\AppData\Roaming\Typora\typora-user-images\image-20200508173231131.png)
 
 注：看上去同线性回归一样，但是知道![img](file:///C:\Users\XUYING~1\AppData\Local\Temp\ksohtml9816\wps22.jpg)，所以与线性回归不同
+
+
+
